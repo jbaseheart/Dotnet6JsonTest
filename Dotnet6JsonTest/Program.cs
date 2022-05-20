@@ -3,16 +3,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers()
-    .AddNewtonsoftJson(options => 
-    {
-        options.SerializerSettings.Error = (sender, eventArgs) => 
-        {
-            eventArgs.ErrorContext.Handled = true;
-            
-            //eventArgs.ErrorContext.Error = null;
-            //eventArgs.CurrentObject = default;
-        };
-    });
+    .AddNewtonsoftJson();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
